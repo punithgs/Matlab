@@ -1,0 +1,22 @@
+clc;
+close all;
+clear all;
+%N=10;
+%h=zeros(1,N);
+%x=[1 zeros(1,N-1)];
+%%y(n)=x(n)+2y(n-1)
+%h(1)=1;
+%for i=2:N
+%   h(i)=x(i)+2*h(i-1);
+%end
+%stem(h)
+a=input('enter a coefficient:');
+b=input('enter b coefficient:');
+N=input('enter the number of impulse response system:');
+[h,n]=impz(b,a,N);
+h
+stem(n,h)
+title('impulse response')
+xlabel('n-->');
+ylabel('amplitude-->');
+

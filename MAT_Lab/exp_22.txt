@@ -1,0 +1,28 @@
+clc;
+close all;
+clear all;
+x=input('enter the discrete time signals:');
+N=input('enter the value of N:');
+if N<length(x)
+    disp('N should be atleast equal to length of x');
+    N=length(x);
+end
+n=0:length(x)-1;
+k=o:N-1;
+w=exp(-j*2*pi/N);
+W=w.^(n'*k)
+X=x*W
+disp('magnitude')
+disp(abs(X));
+disp('phase')
+disp(angle(X)*180/pi)
+subplot(2,1,1)
+stem(k,abs(X));
+title('magnitude spectrum');
+xlabel('k-->');
+ylabel('amplitude-->');
+subplot(2,1,2)
+stem(k,angle(X).*180/pi);
+title('phase spectrum');
+xlabel('k-->');
+ylabel('angle--');

@@ -1,0 +1,22 @@
+clc;
+clear all;
+close all;
+x=input('enter x:');
+h=input('enter h:');
+M=length(h);
+N=length(x);
+y=zeros(1,M+N-1);
+for n=1:M+N-1
+total=0;for k=1:M
+index=n-k+1;
+if(index>0&&index<=N)
+total=total+(h(k)*x(n-k+1));
+end
+end
+y(n)=total;
+end
+y
+stem(y)
+title('linear convolution')
+xlabel('n--->')
+ylabel('y--->')
