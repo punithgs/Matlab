@@ -1,0 +1,17 @@
+clc;
+clear all;
+close all;
+X=input('enter the time sequence');
+N=input('enter the no. of points of DFT');
+%X=fft(x,N)
+x=ifft(X,N)
+n=0:length(x)-1;
+stem(n,abs(X));
+title('frequency sequence');
+xlabel('K');
+ylabel('X(K)');
+n=0:N-1;
+stem(n,x);
+title('Time sequence');
+xlabel('n');
+ylabel('X(n)');

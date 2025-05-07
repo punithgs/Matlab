@@ -1,0 +1,48 @@
+clc;
+clear all;
+close all;
+fs=input('enter the sampling frequency (in Hz)');
+fp=input('enter the pass band frequency (in Hz)');
+tw=input('enter the transition width (in Hz)');
+as=input('enter the stop band attenution (in dB)');
+fn=fs/2;
+fpn=fp/fn;
+twn=tw/fn;
+fst=fp+tw;
+fstn=fst/fn;
+fcn=(fpn+fstn)/2;
+if(as<=21)
+    N=ceil(4/twn);
+    if(rem(N,2)==0);
+        N=N+1;
+    end;
+    wn=boxcar(N);
+elseif(as>21&&as<=53)
+    N=ceil(8/twn);
+    if(rem(N,2)==0);
+        N=N+1;
+    end;
+    wn=hamming(N);
+else
+    N=ceil(12/twn);
+    if(rem(N,2)==0);
+        N=N+1;
+    end;
+    wn=blackman(N);
+end;
+hn=fir1(N-1,fcn,wn);
+[H,f]=freqz(hn,1,256,fs);
+H_mag=20*log10(abs(H));
+figure;
+plot(f,H_mag);
+grid on;
+xlabel('frequency in Hz');
+ylabel('magnitude in dB');
+title('magnitude response');
+H_phase=angle(H);
+figure;
+plot(f,H_phase*(180/pi));
+grid on;
+xlabel('frequency in Hz');
+ylabel('phase in degrees');
+title('phase response');

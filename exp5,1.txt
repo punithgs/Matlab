@@ -1,0 +1,24 @@
+clc;
+clear all;
+close all;
+x=input('enter the time sequence');
+N=input('enter the no. of points of DFT');
+X=fft(x,N)
+%x1=ifft(X,N)
+n=0:length(x)-1;
+stem(n,x);
+title('time sequence');
+xlabel('n');
+ylabel('x(n)');
+k=0:N-1;
+figure
+subplot(2,1,1);
+stem(k,abs(X));
+title('magnitude response');
+xlabel('k');
+ylabel('mag(X(k))');
+subplot(2,1,2);
+stem(k,angle(X));
+title('phase response');
+xlabel('k');
+ylabel('phase(X(k))');
