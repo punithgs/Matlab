@@ -7,7 +7,42 @@ Eg=input('Enter the E in PU')
 Is=Eg/xd;
 Isstpu=Eg/xdst;
 Ib=(P*10e6)/(sqrt(3)*E*10e3);
-Isst=Isstpu*Ib;
+Isst=Isstpu*Ib;Power Angle Curve and Voltage Regulation
+
+P = 60e6;
+
+pf = 0.8;
+
+Vt 34.6e3;
+
+Xd 13.5;
+
+SP/pf;
+
+IS/(sqrt (3) Vt);
+
+delta acos (pf);
+
+Eqabs (Vt1j I Xd);
+
+delta_deg delta (180/pi);
+
+regulation ((EqVt)/Vt) 100;
+
+delta_angle linspace (0, pi, 100);
+
+Pe (EqVt/Xd) sin(delta_angle);
+
+plot (rad2deg (delta_angle), Pe/1e6, 'b', 'LineWidth', 2);
+
+xlabel('Power Angle (degrees)');
+
+ylabel('Power Output (MW)');
+
+title('Power Angle Curve');
+
+grid on;
+
 DC=0.1*Ist;
 MakeupCurrent=sqrt(3)*E*10e3*Isst*1.6;
 MakeupCurrent=abs(MakeupCurrent)
