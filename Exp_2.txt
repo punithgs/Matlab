@@ -1,8 +1,8 @@
-fid=fopen('prog2.txt','r') 
+fid=fopen('medium20.txt','r') 
 [array]=fscanf(fid,'%f') 
-vr=array(1,1),pr=array(2,1),r=array(3,1),x=array(4,1),y=array(5,1),pfr=array(6,1),l=arr
- ay(7,1) 
-z=l*(r+j*x) 
+vr=array(1,1),pr=array(2,1),r=array(3,1),x=array(4,1),y=array(5,1),pfr=array(6,1), 
+L=array(7,1) 
+z=L*(r+j*x)
 fclose(fid); 
 y=j*y 
 p=input('enter 1 for pi network & 2 for T network'); 
